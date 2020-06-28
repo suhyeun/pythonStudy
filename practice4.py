@@ -58,3 +58,43 @@ mix_list = ["효정", 24, True]
 num_list.extend(mix_list)
 print(num_list)
 
+#사전(딕셔너리)
+cabinet = {3:"효정", 100:"미미"}
+print(cabinet[3])
+print(cabinet[100])
+
+print(cabinet.get(3))
+print(cabinet[5]) #오류발생, 프로그램 종료
+print(cabinet.get(5)) #None
+print(cabinet.get(5, "사용 가능"))
+print("hi")
+
+print(3 in cabinet) #True
+print(5 in cabinet) #False
+
+cabinet = {"A-3":"유아", "B-100":"비니"}
+print(cabinet["A-3"])
+print(cabinet["B-100"])
+
+# 새 손님
+print(cabinet)
+cabinet["A-3"] = "승희"
+cabinet["C-20"] = "아린"
+print(cabinet)
+
+# 간 손님
+del cabinet["A-3"]
+print(cabinet)
+
+# key 들만 출력
+print(cabinet.keys())
+
+#value 들만 출력
+print(cabinet.values())
+
+# key, value 쌍으로 출력
+print(cabinet.items())
+
+# 목욕탕 폐점
+cabinet.clear()
+print(cabinet)
