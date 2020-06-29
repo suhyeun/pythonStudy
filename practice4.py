@@ -98,3 +98,59 @@ print(cabinet.items())
 # 목욕탕 폐점
 cabinet.clear()
 print(cabinet)
+
+# 튜플 (속도가 리스트보다 빠름, 변경되지 않음)
+menu = ("돈까스", "치즈까스")
+print(menu[0])
+print(menu[1])
+
+menu.add("생선까스") #튜플은 값의 추가가 불가능 함
+
+name = "효정"
+age = 26
+hobby = "베이킹"
+print(name, age, hobby)
+
+(name, age, hobby) = ("효정", 26, "베이킹")
+print(name, age, hobby) 
+
+# 집합(set) (중복 안됨, 순서 없음)
+my_set = {1,2,3,4,3}
+print(my_set)
+
+java = {"유아", "효정", "미미", "비니"}
+python = set(["유아", "아린", "지호", "승희"])
+
+# 교집합 (java와 python을 모두 할 수 있는 사람)
+print(java & python) #유아
+print(java.intersection(python)) #유아
+
+# 합집합(java도 할 수 있거나 python도 할 수 있는 사람)
+print(java | python) #효정, 미미, 비니, 유아, 아린, 지호, 승희 
+print(java.union(python)) #효정, 미미, 비니, 유아, 아린, 지호, 승희 
+
+# 차집합(java는 할 수 있지만 python은 할 줄 모르는 사람)
+print(java - python) #비니, 효정, 미미
+print(java.difference(python)) #비니, 효정, 미미
+
+# python 할 줄 아는 사람이 늘어남
+python.add("미미")
+print(python)
+
+# java를 까먹음
+print(java)
+java.remove("미미")
+print(java)
+
+# 자료구조의 변경
+menu = {"커피", "우유", "주스"}
+print(menu, type(menu)) #type = set
+
+menu = list(menu)
+print(menu, type(menu)) #type = list
+
+menu = tuple(menu)
+print(menu,type(menu)) #type = tuple
+
+menu = set(menu)
+print(menu, type(menu)) #type = set
