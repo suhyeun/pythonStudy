@@ -59,3 +59,46 @@ print("{0:f}".format(5/3))
 
 # 소수점을 특정 자리수까지만 표시
 print("{0:.2f}".format(5/3)) #소수점 셋째 자리에서 반올림
+
+from primetext import primelist 
+primenumber=primelist() 
+# primenumber는 1000000개의 소수를 포함한 리스트
+
+# 파일입출력
+w = write, a = append, r = read
+score_file = open("score.txt", "w", encoding="utf8")
+print("수학  : 0", file = score_file)
+print("영어  : 50", file = score_file)
+score_file.close()
+
+score_file = open("score.txt", "a", encoding="utf8")
+score_file.write("과학 : 80")
+score_file.write("\n코딩 : 100") #write를 통해서 입력을 받을 때는 줄바꿈이 적용되지 않음
+score_file.close()
+
+score_file = open("score.txt", "r", encoding="utf8")
+print(score_file.read()) #파일의 모든 내용을 읽어옴
+score_file.close()
+
+score_file = open("score.txt", "r", encoding="utf8")
+print(score_file.readline()) #줄별로 읽기, 한 줄 읽고 커서는 다음 줄로 이동
+print(score_file.readline(), end="") #줄바꿈을 하기싫으면 end사용
+print(score_file.readline(), end="")
+print(score_file.readline(), end="")
+score_file.close()
+
+# 몇 줄인지 모를 때
+score_file = open("score.txt", "r", encoding="utf8")
+while True:
+    line = score_file.readline()
+    if not line:
+        break
+    print(line, end="")
+score_file.close
+
+lines = score_file.readlines() #list형태로 저장
+for line in lines:
+    print(line, end="")
+score_file.close()
+
+
