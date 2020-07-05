@@ -65,7 +65,7 @@ primenumber=primelist()
 # primenumber는 1000000개의 소수를 포함한 리스트
 
 # 파일입출력
-w = write, a = append, r = read
+# w = write, a = append, r = read
 score_file = open("score.txt", "w", encoding="utf8")
 print("수학  : 0", file = score_file)
 print("영어  : 50", file = score_file)
@@ -101,4 +101,34 @@ for line in lines:
     print(line, end="")
 score_file.close()
 
+# pickle
+# 프로그램 상에서 사용하는 데이터를 파일 형태로 저장
+# 다른 사람에게 주면 pickle을 이용해서 데이터를 가져와 코드에서 사용 가능
+import pickle
+# b = 바이너리
+profile_file = open("profile.pickle", "wb") #pickle에서는 따로 인토딩 설정을 하지 않음
+profile = {"이름":"현승희", "나이":"24", "특기":["노래","개인기","양궁"]}
+print(profile)
+pickle.dump(profile, profile_file) #profile에 있는 정보를 file에 저장
+profile_file.close()
 
+profile_file = open("profile.pickle", "rb")
+profile = pickle.load(profile_file) #file에 있는 정보를 profile에 불러오기
+print(profile)
+profile_file.close()
+
+# with
+# 파일을 여닫는 작업을 쉽게 함
+import pickle
+
+with open("profile.pickle", "rb") as profile_file:
+    print(pickle.load(profile_file))
+# close를 해 줄 필요가 없다.
+
+# 파일 쓰기
+with open("study.txt", "w", encoding="utf8") as study_file:
+    study_file.write("파이썬을 열심히 공부하고 있어요")
+
+# 파일 읽기
+with open("study.txt", "r", encoding="utf8") as study_file:
+    print(study_file.read())
